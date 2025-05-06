@@ -1,0 +1,170 @@
+/* Стили страницы документации */
+.docs-page {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+/* Боковое меню */
+.docs-sidebar {
+    position: sticky;
+    top: 80px;
+    height: calc(100vh - 80px);
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow-y: auto;
+}
+
+.nav-section {
+    margin-bottom: 2rem;
+}
+
+.nav-section h3 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.nav-section ul {
+    list-style: none;
+}
+
+.nav-section li {
+    margin-bottom: 0.5rem;
+}
+
+.nav-section a {
+    color: var(--text);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-section a:hover,
+.nav-section a.active {
+    background: var(--gradient);
+}
+
+/* Основной контент */
+.docs-content {
+    padding: 2rem;
+    max-width: 900px;
+}
+
+.content-section {
+    margin-bottom: 4rem;
+}
+
+.content-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+}
+
+.content-section h3 {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.content-section p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Код и примеры */
+.code-block {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 1rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-block pre {
+    margin: 0;
+    overflow-x: auto;
+}
+
+.code-block code {
+    font-family: 'Fira Code', monospace;
+    color: var(--text);
+}
+
+.copy-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.5rem;
+    background: var(--card-bg);
+    border: none;
+    border-radius: 5px;
+    color: var(--text);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.code-block:hover .copy-button {
+    opacity: 1;
+}
+
+/* Таблицы */
+.docs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.docs-table th,
+.docs-table td {
+    padding: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.docs-table th {
+    background: var(--card-bg);
+    text-align: left;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .docs-page {
+        grid-template-columns: 1fr;
+    }
+
+    .docs-sidebar {
+        position: fixed;
+        left: -300px;
+        transition: left 0.3s ease;
+        z-index: 100;
+    }
+
+    .docs-sidebar.active {
+        left: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient);
+        border: none;
+        border-radius: 50%;
+        color: var(--text);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 101;
+    }
+}
